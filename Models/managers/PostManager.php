@@ -30,5 +30,25 @@ class PostManager {
             return $post;
         
     }
+
+    // public static function getIdUserName($id) {
+
+    //     $dbh = dbconnect();
+    //         $query = $dbh->prepare("SELECT pseudo
+    //         FROM users
+    //         JOIN post ON users.id_user = post.id_user
+    //         WHERE post.id_user = $id")or die(print_r($dbh->errorInfo()));
+            
+    //         $query->execute();
+
+    //         //le fetch() classique ne comprend pas le Fetch_class d'emblée, il faut ajouter d'abord un setFetchMode
+    //         // $query->setFetchMode(PDO::FETCH_CLASS, 'Post');
+    //         $author_post = $query->fetch();
+
+    //         return $author_post;
+        
+    // }
+
+    // $query = ("SELECT * FROM post JOIN user ON post.id_user = user.id_user"
    
 }

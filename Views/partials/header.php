@@ -16,25 +16,25 @@
 <body>
 
     <header>    
-    <div class="container_image_banniere">
-            <img class="image_banniere" src="./Content/portrait_fond_blog.png" alt="portrait">
-        </div>
+        
 
         <h1>La Toile <img class="logo" src="./Content/logo.png" alt="logo"></h1>
             
             <h2>Le blog pour les développeurs créatifs</h2>
 
-
+            <div class="container_image_banniere">
+            <img class="image_banniere" src="./Content/portrait_fond_blog.png" alt="portrait">
+        </div>
 
                 <div class="border-bottom"></div>
         
                 <nav>
-        <ul>
-            <li><a href="index.php">Accueil</a></li>
-            <li><a href="#">Développement Front-End</a></li>
-            <li><a href="#">Développement Back-End</a></li>
-            <li><a href="#">WebDesign</a></li>
-            <li><a href="#">Contact</a></li>
+         <ul>
+                <li><a href="index.php">Accueil</a></li>
+                <li><a href="#">Développement Front-End</a></li>
+                <li><a href="#">Développement Back-End</a></li>
+                <li><a href="#">WebDesign</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
