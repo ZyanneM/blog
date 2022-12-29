@@ -23,7 +23,7 @@
         <div class="article">
            <h2><?php echo $post->getTitle() ?></h2>
            <img class="image_article" src="<?php echo $post->getPicture() ?>" alt="image">
-           <h3> Writing by <?php echo $author_post ?></h3>
+           <h3> Writing by</h3>
            <h3><?php echo $post->getDate() ?></h3>
            <p><?php echo $post->getContent() ?></p> 
         </div>

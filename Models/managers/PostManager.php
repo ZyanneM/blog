@@ -10,7 +10,8 @@ class PostManager {
         $dbh = dbconnect();
         //On retrouve la variable dbh grace à l'appel de la fonction qui la contient, sinon elle n'aurait pas la portée suffisante pour être appelée
         $query = ("SELECT * FROM post");
-        $stmt = $dbh->prepare($query);$stmt->execute();
+        $stmt = $dbh->prepare($query);
+        $stmt->execute();
          //FETCH_CLASS appelle pour chaque objet retourné une nouvelle instance de la classe demandée
         $posts = $stmt->fetchAll
        (PDO::FETCH_CLASS, 'Post');
