@@ -32,6 +32,19 @@ class PostManager {
         
     }
 
+    public static function getPostByAuthor($id) {
+        $dbh = dbconnect();
+        //On retrouve la variable dbh grace à l'appel de la fonction qui la contient, sinon elle n'aurait pas la portée suffisante pour être appelée
+        $query = ("SELECT * FROM post JOIN user ON post.id_user = user.id_user WHERE id_user = $id");
+        $stmt = $dbh->prepare($query);
+        $stmt->execute();
+         //FETCH_CLASS appelle pour chaque objet retourné une nouvelle instance de la classe demandée
+        $posts = $stmt->fetchAll
+       (PDO::FETCH_CLASS, 'Post');
+       return $posts;
+  
+}
+
     // public static function getIdUserName($id) {
 
     //     $dbh = dbconnect();

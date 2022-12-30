@@ -23,7 +23,7 @@
         <div class="article">
            <h2><?php echo $post->getTitle() ?></h2>
            <img class="image_article" src="<?php echo $post->getPicture() ?>" alt="image">
-           <h3> Writing by <?php echo $post->getPseudo() ?></h3>
+           <h3> Writing by<a href="author.php?id=<?php echo $post->getIdUser()?>"> <?php echo $post->getPseudo(); ?></a></h3>
            <h3><?php echo $post->getDate() ?></h3>
            <p><?php echo $post->getContent() ?></p> 
         </div>
@@ -33,7 +33,7 @@
 <p>Commentaires <br>
 <?php foreach($comment as $comm) { ?>  
         <div class="comments">
-           <?php echo $comm->getPseudo(); ?><br>
+          <a href="index.php"> <?php echo $comm->getPseudo(); ?> </a> <br>
            <?php echo $comm->getCommentContent();?>
 </p> 
         </div>
