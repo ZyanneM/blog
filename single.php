@@ -9,7 +9,8 @@ $id = $_GET['id'];
 
 $post = PostManager::getPostById($id);
 
-$comment = CommentManager::getCommentById($id);
+$comment = CommentManager::getAllComments($id);
+// $comment = CommentManager::getCommentById($id);
 
 
 //requiert le fichier de vue

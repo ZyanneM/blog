@@ -30,12 +30,14 @@
 </section>
 
 <section class="container section comment">
-    
+<p>Commentaires <br>
+<?php foreach($comment as $comm) { ?>  
         <div class="comments">
-           <p>Commentaires <br><?php echo $comment->getCommentContent();
-            ?> 
+           <?php echo $comm->getPseudo(); ?><br>
+           <?php echo $comm->getCommentContent();?>
 </p> 
         </div>
+        <?php } ?>
 </section>
 
 <?php

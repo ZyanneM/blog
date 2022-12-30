@@ -41,4 +41,8 @@ class Comment {
         $this->content = $content;
     }
 
+    public function getPseudo(){
+        return $this->pseudo;
+    }
+
 }
