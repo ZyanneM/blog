@@ -14,6 +14,8 @@ class Post {
 
     private $id_user;
 
+    private $pseudo;
+
     public function getIdPost(){
         return $this->id_post;
     }
@@ -56,5 +58,9 @@ class Post {
 
     public function setIdUser($id_user) {
         $this->id_user = $id_user;
+    }
+
+    public function getPseudo(){
+        return $this->pseudo;
     }
 }

@@ -308,3 +308,8 @@ nav ul li a {
   .single p {
     font-family: 'Baloo 2', cursive;
   }
+
+  .comment {
+    position: relative;
+    top: 100vh;
+  }

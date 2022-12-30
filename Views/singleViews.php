@@ -23,9 +23,18 @@
         <div class="article">
            <h2><?php echo $post->getTitle() ?></h2>
            <img class="image_article" src="<?php echo $post->getPicture() ?>" alt="image">
-           <h3> Writing by</h3>
+           <h3> Writing by <?php echo $post->getPseudo() ?></h3>
            <h3><?php echo $post->getDate() ?></h3>
            <p><?php echo $post->getContent() ?></p> 
+        </div>
+</section>
+
+<section class="container section comment">
+    
+        <div class="comments">
+           <p>Commentaires <br><?php echo $comment->getCommentContent();
+            ?> 
+</p> 
         </div>
 </section>
 

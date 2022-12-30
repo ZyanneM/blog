@@ -21,7 +21,7 @@ class PostManager {
     public static function getPostById($id) {
          
             $dbh = dbconnect();
-            $query = $dbh->prepare("SELECT * FROM post WHERE id_post =$id");
+            $query = $dbh->prepare("SELECT * FROM post JOIN user ON post.id_user = user.id_user WHERE id_post =$id");
             
             $query->execute();
             //le fetch() classique ne comprend pas le Fetch_class d'emblée, il faut ajouter d'abord un setFetchMode
