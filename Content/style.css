@@ -25,7 +25,7 @@ header{
   background-size:contain;
   background-repeat: no-repeat; */
   height: 250px;
-  margin-top: -70vh;
+  margin-top: -82vh;
   position: absolute;
 }
 
@@ -313,3 +313,201 @@ nav ul li a {
     position: relative;
     top: 108vh;
   }
+  
+  .newpostcontainer{
+    margin-top: 0;
+    position: relative;
+    top: 18vh;
+
+  } 
+  .newpostcontainer *{
+    width: 300px;
+    font-family: 'Baloo 2', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .form_container {
+    margin-top: 0;
+    position: relative;
+    top: 10vh;
+    font-family: 'Baloo 2', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 4px;
+  }
+
+  .form_container form {
+
+    position: relative;
+    top: 15vh;
+ 
+  }
+
+  .page_title{
+    font-family: 'Baloo 2', cursive;
+  }
+
+  .category_name {
+    position: relative;
+  }
+
+  .formulaire {
+    position: relative;
+    top: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .formulaire *{
+    margin: 6px;
+  }
+
+  .login {
+    position: relative;
+    top: 8vh;
+    left: 90vw;
+  }
+
+  #icone-login {
+    font-size: 3rem;
+    color: #ffff;
+  }
+
+  /* Essai Menu BURGER /*
+
+  /* <!-- ######## Essai Menu Burger CSS ONLY ######## --> */
+
+.hamburger-menu {
+  height: 7vh;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+
+.menu__btn {
+  position: absolute;
+  top: 2rem;
+  right: 1.7rem;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+display: block;
+position: absolute;
+width: 100%;
+height: 2px;
+background-color: #616161;
+transition-duration: .55s;
+}
+
+.menu__btn > span::before {
+  content: '';
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: '';
+  top: 8px;
+}
+
+#menu__toggle:checked + .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked + .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0deg);
+}
+#menu__toggle:checked + .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+}
+
+#menu__toggle:checked ~ .menu__box {
+  /* left: 0 !important; */
+  top: 0 !important;
+}
+
+.menu__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: fixed;
+  left: 0;
+  top: -100%;
+  /* top: 0;
+  left: 100%; */
+  width: 100em;
+  height: 31em;
+  margin: 0;
+  padding: 0rem 0 0 ;
+  list-style: none;
+  background-color: #ECEFF1;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+  transition-duration: 1s;
+}
+
+.menu__box .logo {
+  margin-bottom: 2rem;
+}
+.item {
+  display: block;
+  padding: 12px 24px 20px;
+  color: rgb(104, 104, 104);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: left;
+  transition-duration: .25s;
+}
+
+#house_icon {
+  padding-right: 1rem;
+}
+
+#boutique_icon {
+  padding-left: 0.17rem ;
+  padding-right: 1rem;
+}
+
+#infos_icon {
+  padding-right: 0.8rem;
+}
+
+#actu_icon {
+  padding-left: 0.10rem ;
+  padding-right: 0.8rem;
+}
+
+#compte_icon {
+  padding-left: 0.17rem ;
+  padding-right: 0.9rem;
+}
+
+#panier_icon {
+  padding-right: 0.7rem;
+}
+
+#contact_icon {
+  padding-left: 0.15rem;
+  padding-right: 0.7rem;
+}
+
+.item:hover {
+  color: #3ca1cd;
+}

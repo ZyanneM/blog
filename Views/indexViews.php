@@ -10,7 +10,7 @@
         <section class="card_container">
             <div class="card">
                 <div class="card_picture">
-                <img src="<?php echo $post->getPicture() ?>" alt="image">
+                <img src="./Content/<?php echo $post->getPicture() ?>" alt="image">
                     </div>
                         <div class="card_body">
                             <h5 class="card_title"><?php echo $post->getTitle() ?></h5>
