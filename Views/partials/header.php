@@ -31,7 +31,7 @@
         </div>
 
                 <div class="border-bottom"></div>
-        
+<!--         
                 <div class="hamburger-menu">
 
 <input id="menu__toggle" type="checkbox" />
@@ -47,7 +47,7 @@
     <li><a class="item" href="#">
         <i id="contact_icon"class="fa-solid fa-envelope"></i>Contact</a></li>
 </ul>
-</div>
+</div> -->
 
                 <nav>
          <ul>
