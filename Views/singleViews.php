@@ -22,7 +22,7 @@
     
         <div class="article">
            <h2><?php echo $post->getTitle() ?></h2>
-           <img class="image_article" src="<?php echo $post->getPicture() ?>" alt="image">
+           <img class="image_article" src="./Content/<?php echo $post->getPicture() ?>" alt="image">
            <h3> Writing by<a href="author.php?id=<?php echo $post->getIdUser()?>"> <?php echo $post->getPseudo(); ?></a></h3>
            <h3><?php echo $post->getDate() ?></h3>
            <p><?php echo $post->getContent() ?></p> 
