@@ -10,6 +10,9 @@ class User {
 
     private $password;
 
+    private $id_role;
+
+    private $role_name;
 
 
     public function getIdUser(){
@@ -39,5 +42,13 @@ class User {
     public function setPassword($password) {
         $this->password = $password;
     }
+
+    public function getRole() {
+       return $this->id_role;
+    }
+
+    public function getRoleName() {
+        return $this->role_name;
+     }
 
 }

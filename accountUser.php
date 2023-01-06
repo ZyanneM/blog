@@ -1,17 +1,15 @@
 <?php
 session_start();
-require_once'./Models/managers/CategoryManager.php';
 require_once'./Models/managers/PostManager.php';
+require_once'./Models/managers/CategoryManager.php';
 
 //Ici on mettra toute la logique du code
 
-$id = $_GET['id'];
-
-$posts = PostManager::getPostByAuthor($id);
+$posts = PostManager::getAllPosts();
 
 $categories = CategoryManager::getAllCategories();
 
 //requiert le fichier de vue
-require_once'./Views/authorViews.php';
+require_once'./Views/accountUserViews.php';
 
 ?>

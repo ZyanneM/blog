@@ -3,5 +3,6 @@
 
 <!-- <h1 class="footer_text">C'est le footer !</h1> -->
     <script src="./Content/script.js"></script>
+    
 </body>
 </html>

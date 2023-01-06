@@ -59,7 +59,23 @@ class UserManager {
         $_SESSION['user'] = [
             'id'=>$user->getIdUser(),
             'pseudo'=>$user->getPseudo(),
+            'role'=>$user->getRole(),
         ];
     }
+
+
+    public static function getRoleById($id) {
+         
+        $dbh = dbconnect();
+        $query = $dbh->prepare("SELECT role_name FROM role WHERE id_role =$id");
+        
+        $query->execute();
+        //le fetch() classique ne comprend pas le Fetch_class d'emblée, il faut ajouter d'abord un setFetchMode
+        $query->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $user_role = $query->fetch();
+
+        return $user_role;
+    
+}
 
 }

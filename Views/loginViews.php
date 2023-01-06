@@ -1,13 +1,8 @@
 <?php
 require_once 'partials/header.php';
 
-
 ?>
-                <div id="modal-container">
-                    <div class="modal">
-                        <div>💚 Connexion Réussie !</div>
-                    </div>
-                </div>
+               
 
 <div class="loginview">
 
@@ -22,11 +17,33 @@ require_once 'partials/header.php';
                     <label for="InputPassword" class="form-label">🔒 Mot de passe</label><br>
                     <input type="password" class="form-control" id="InputPassword" name="mdp">
                 </div>
+                <div>Pas de compte ? <a href="signup.php" class="lien-inscription">Inscrivez-vous</a></div>
                 <button class="btn-form" type="submit">Se Connecter</button>
             </form>
 
 </div>
 
+
+
+
+
 <?php 
-require_once 'partials/footer.php';
+    
+    require_once 'partials/footer.php';
+ 
+    if (isset($_SESSION['user'])) { 
+   echo "<script>
+  
+        function openForm(){
+        document.querySelector('.modal-container').style.display = 'block';
+    
+        document.querySelector('.modal-container').setAttribute('class', 'bounce-in-top');
+  
+  };
+  
+  openForm();
+         
+   </script>";
+
+   } 
 ?>

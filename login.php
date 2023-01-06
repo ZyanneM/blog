@@ -13,16 +13,18 @@ if(isset($_POST)&&!empty($_POST)){
     $verified_user= password_verify($mdp, $user->getPassword());
     if($verified_user){
         UserManager::connectUser($user);
+       
     }
     // var_dump($verified_password);
     //UserManager::connectUser(); à construire
 }
+
 
 $categories = CategoryManager::getAllCategories();
 
 require_once './Views/loginViews.php';
 
 if(isset($_POST)&&!empty($_POST)){
-    header('location:index.php');
+    header('Refresh: 3.5; url=index.php');
 }
 

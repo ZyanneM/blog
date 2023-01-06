@@ -1,3 +1,10 @@
+<?php
+require_once './Models/managers/UserManager.php';
+
+$id = $_SESSION['user']['role'];
+$user_role = UserManager::getRoleById($id);
+// var_dump($user_role);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,10 +25,7 @@
 <body>
 
     <header>    
-        <!-- <div class="login">
-        <a href=""><i class="fa-solid fa-circle-user" id="icone-login"></i></a>
-        <a>Se Connecter</a>
-        </div> -->
+
         <h1>La Toile <img class="logo" src="./Content/logo.png" alt="logo"></h1>
             
             <h2>Le blog pour les développeurs créatifs</h2>
@@ -29,6 +33,14 @@
             <div class="container_image_banniere">
             <img class="image_banniere" src="./Content/portrait_fond_blog.png" alt="portrait">
         </div>
+
+        <div class="modal-container" id="modal-container">
+                    <div class="modal" id="modal">
+                        <div>💚 Connexion Réussie !</div>
+                    </div>
+                </div>
+
+
 
                 <div class="border-bottom"></div>
 
@@ -55,6 +67,24 @@
 </ul>
 </div>
 
+        <div class="login">
+            
+            <?php if (isset($_SESSION['user'])) {
+                //SESSION['user']est un tableau, je vais chercher la clé pseudo correspondante
+               ?> <a href="accountUser.php"><i class="fa-solid fa-circle-user" id="icone-login"></i></a>
+               <div class="text-connected"> Bienvenue <span><?php echo $_SESSION['user']['pseudo']?></span> !</div><br>
+               <div class="text-session">
+                    <!-- Pour récupérer le nom du rôle utilisateur, j'ai créé une méthode getRoleById dans le UserManager, cette méthode retourne le nom du role en fonction de l'id_role, ce dernier étant récupéré dans la variable id grâce à la valeur de la clé de SESSION 'role' -->
+                    Votre mission : <span>
+                    <?php
+                    echo $user_role->getRoleName(); ?></span>
+                </div>
+           <?php }else{?>
+            <a href="login.php"><i class="fa-solid fa-circle-user" id="icone-login"></i></a>
+            <div class="text-connected">Vous n'êtes pas connecté</div>
+           <?php }
+            ?>
+        </div>
         <nav>
             <ul>
                  <li><a href="index.php">Accueil</a></li>

@@ -84,7 +84,7 @@ header h2 {
 }
 
 nav {
-  top: -32vh;
+  top: -42vh;
   left: 0px;
   padding: 0;
   margin: 0;
@@ -349,6 +349,7 @@ background-color: black;
   position: relative;
 }
 
+
 .login-form {
   top: 0vh;
   position: relative;
@@ -474,8 +475,8 @@ background-color: black;
 }
 
 .loginview {
-  position: relative;
-  top: 15vh;
+  position: absolute;
+  top: 38vh;
 }
 
 .form_container *{
@@ -588,9 +589,13 @@ fieldset {
 
 
 .login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  top: 8vh;
-  left: 90vw;
+  top: -52vh;
+  left: 40vw;
 }
 
 #icone-login {
@@ -713,18 +718,16 @@ padding-right: 16px;
 
 /* ---------------------- DIV CONTENANT LA MODALE ----------------------- */
 
-#modal-container {
+.modal-container {
 position: fixed;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+z-index: 6;
 height: 10vh;
 width: 15vw;
-top: 1vh;
-left: 6vw;
-transform: scale(1);
-z-index: 6;
+display: none;
 }
 
 /* ---------------------- MODALE----------------------- */
@@ -736,8 +739,10 @@ padding: 20px;
 border-radius: 10px;
 font-weight: 300;
 max-height: 475px;
-position: relative;
 width: 15vw;
+position: absolute;
+top: -45vh;
+left: 6vw;
 font-family: 'Baloo 2', cursive;
   font-size: 1.1em;
   font-weight: 500;
@@ -753,6 +758,11 @@ animation: blowUpModal .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
 animation: blowUpModalTwo .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
 }
 
+.bounce-in-top{
+	-webkit-animation: bounce-in-top 1.4s both;
+	        animation: bounce-in-top 1.4s both;
+}
+
 
 .closebouton {
 animation: closebouton 0.3s linear;
@@ -763,6 +773,60 @@ animation: "";
 }
 
 /* ----------------- KEYFRAME OUVERTURE -------------- */
+
+@keyframes bounce-in-top {
+  0% {
+    -webkit-transform: translateY(-500px);
+            transform: translateY(-500px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  38% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  55% {
+    -webkit-transform: translateY(-65px);
+            transform: translateY(-65px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  72% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  81% {
+    -webkit-transform: translateY(-28px);
+            transform: translateY(-28px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  90% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  95% {
+    -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+
+}
 
 @keyframes blowUpModal {
 0% {
@@ -784,4 +848,40 @@ animation: "";
   transform: scale(0);
   opacity: 0;
 }
+}
+
+.text-connected {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1em;
+  font-weight: 300;
+  margin-top: 15px;
+}
+
+.text-connected span {
+  color: #9f3ccd;
+}
+.text-session {
+  font-family: 'Baloo 2', cursive;
+}
+
+.text-session span {
+
+  color: #c74b25;
+}
+
+.fa-circle-user:hover {
+transform: scale(0.9);
+}
+
+.account-title {
+  display: flex;
+  position: relative;
+  top: 15vh;
+  left: 0;
+}
+
+.roletest {
+  position: relative;
+  top: -31vh;
+  left:-1vw;
 }

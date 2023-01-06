@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once'./Models/managers/CategoryManager.php';
 require_once'./Models/managers/PostManager.php';
 
