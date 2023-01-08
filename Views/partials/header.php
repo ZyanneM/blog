@@ -1,8 +1,5 @@
 <?php
 require_once './Models/managers/UserManager.php';
-
-$id = $_SESSION['user']['role'];
-$user_role = UserManager::getRoleById($id);
 // var_dump($user_role);
 ?>
 <!DOCTYPE html>
@@ -54,22 +51,48 @@ $user_role = UserManager::getRoleById($id);
 </label>
 
 <ul class="menu__box">
+<?php if(empty($_SESSION['user'])) { ?>
     <li><a class="item" href="login.php">
     <i class="fa-solid fa-right-to-bracket"></i>Se Connecter</a></li>
     <li><a class="item" href="signup.php">
     <i class="fa-solid fa-user-pen"></i>S'inscrire</a></li>
-    <li><a class="item" href="addPost.php">
-    <i class="fa-solid fa-file-pen"></i></i>Ajouter un Post</a></li>
     <li><a class="item" href="#">
         <i id="contact_icon"class="fa-solid fa-envelope"></i>Contact</a></li>
+    <?php } ?>
+    <?php if(isset($_SESSION['user'])) {
+         $id = $_SESSION['user']['role'];
+         if ($id == 1){ ?>
+            <li><a class="item" href="deletePost.php">  
+            <i class="fa-regular fa-trash-can"></i></i>Supprimer un Post</a></li>
+          <?php } } ?>
+
+    <?php if(isset($_SESSION['user'])) {
+         $id = $_SESSION['user']['role'];
+         if ($id == 1 || $id == 2){
+           ?>
+    <li><a class="item" href="addPost.php">  
+    <i class="fa-solid fa-file-pen"></i></i>Ajouter un Post</a></li>
+    <li><a class="item" href="updatePost.php">  
+    <i class="fa-solid fa-pen-to-square"></i></i>Modifier un Post</a></li>
+    <?php } } ?>
+    <?php if(isset($_SESSION['user'])) {
+         $id = $_SESSION['user']['role'];
+         if ($id == 3){ ?>
+         <li><a class="item" href="#">
+        <i id="contact_icon"class="fa-solid fa-envelope"></i>Contact</a></li>
+        <?php } }?>
+        <?php if(isset($_SESSION['user'])) { ?>
         <li><a class="item" href="logout.php">
         <i class="fa-solid fa-house-circle-xmark"></i>Se déconnecter</a></li>
+        <?php } ?>
 </ul>
 </div>
 
         <div class="login">
             
             <?php if (isset($_SESSION['user'])) {
+                $id = $_SESSION['user']['role'];
+                $user_role = UserManager::getRoleById($id);
                 //SESSION['user']est un tableau, je vais chercher la clé pseudo correspondante
                ?> <a href="accountUser.php"><i class="fa-solid fa-circle-user" id="icone-login"></i></a>
                <div class="text-connected"> Bienvenue <span><?php echo $_SESSION['user']['pseudo']?></span> !</div><br>

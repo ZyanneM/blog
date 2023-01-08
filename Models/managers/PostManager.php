@@ -86,4 +86,15 @@ public static function addPostCategories($id_post, $id_category) {
 
 }
 
+public static function deletePost($id_post) {
+    $dbh = dbconnect();
+    //Pas besoin de fetch dans une requête d'insertion car on insère les données on ne les lit pas
+    $query="DELETE FROM post WHERE post.id_post =:id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':post', $id_post);
+    $stmt->bindParam(':category', $id_category);
+    $stmt->execute();
+
+}
+
 }

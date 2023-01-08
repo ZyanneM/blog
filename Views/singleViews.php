@@ -19,12 +19,15 @@
 ?>
 
 <section class="container section single">
+        <div>
+        <i class="fa-solid fa-pen-to-square"></i>
+        </div>
     
         <div class="article">
            <h2><?php echo $post->getTitle() ?></h2>
            <img class="image_article" src="./Content/<?php echo $post->getPicture() ?>" alt="image">
-           <h3> Writing by<a href="author.php?id=<?php echo $post->getIdUser()?>"> <?php echo $post->getPseudo(); ?></a></h3>
-           <h3><?php echo $post->getDate() ?></h3>
+           <p> Writing by : <a class="span-author" href="author.php?id=<?php echo $post->getIdUser()?>"> <?php echo $post->getPseudo(); ?></a></p>
+           <p><?php echo $post->getDate() ?></p>
            <p><?php echo $post->getContent() ?></p> 
         </div>
 </section>
