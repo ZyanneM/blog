@@ -86,15 +86,44 @@ public static function addPostCategories($id_post, $id_category) {
 
 }
 
-public static function deletePost($id_post) {
+public static function editPost($id, $title, $picture, $content, $id_user) {
     $dbh = dbconnect();
-    //Pas besoin de fetch dans une requête d'insertion car on insère les données on ne les lit pas
-    $query="DELETE FROM post WHERE post.id_post =:id";
+    $date = (new DateTime())->format('Y-m-d H:i:s');
+    $query = "UPDATE post SET title = :title, date = '$date', picture = :picture, content = :content, id_user = :id_user WHERE post.id_post = :id";
     $stmt = $dbh->prepare($query);
-    $stmt->bindParam(':post', $id_post);
-    $stmt->bindParam(':category', $id_category);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':picture', $picture);
+    $stmt->bindParam(':content', $content);
+    $stmt->bindParam(':id_user', $id_user);
     $stmt->execute();
-
 }
+
+public static function deletePostCategoriesByPostId($id){
+    $dbh  = dbconnect();
+    $query = "DELETE FROM post_category WHERE post_category.id_post = :id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+    
+public static function deletePost($id) {
+    $dbh  = dbconnect();
+    $query = "DELETE FROM post WHERE post.id_post = :id";
+    $stmt = $dbh->prepare($query);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
+// public static function deletePost($id_post) {
+//     $dbh = dbconnect();
+//     //Pas besoin de fetch dans une requête d'insertion car on insère les données on ne les lit pas
+//     $query="DELETE FROM post WHERE post.id_post =:id";
+//     $stmt = $dbh->prepare($query);
+//     $stmt->bindParam(':post', $id_post);
+//     $stmt->bindParam(':category', $id_category);
+//     $stmt->execute();
+
+// }
 
 }

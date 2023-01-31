@@ -78,4 +78,15 @@ class UserManager {
     
 }
 
+    public static function getAuthorByPostId($id){
+        $dbh = dbconnect();
+        $query = "SELECT user.id_user, pseudo, email FROM user JOIN post ON post.id_user = user.id_user WHERE post.id_post = :id";
+        $stmt = $dbh->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'User');
+        $user = $stmt->fetch();
+        return $user;
+    }
+
 }

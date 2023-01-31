@@ -19,20 +19,30 @@
 ?>
 
 <section class="container section single">
-        <div>
-        <i class="fa-solid fa-pen-to-square"></i>
+        <?php if(isset($_SESSION['user']))
+                        $id = $_SESSION['user']['role'];
+                        if ($id == 1){ ?>
+        <div class="d-flex justify-content-end">
+            <a href="updatePost.php?id=<?php echo $post->getIdPost() ?>" class="">Editer l'article<i class="fa-solid fa-pen-to-square"></i></a>
+            <a href="deletePost.php?id=<?php echo $post->getIdPost() ?>" class="">Supprimer l'article<i class="fa-regular fa-trash-can"></i></a>
         </div>
-    
+        <?php } ?>
         <div class="article">
            <h2><?php echo $post->getTitle() ?></h2>
            <img class="image_article" src="./Content/<?php echo $post->getPicture() ?>" alt="image">
            <p> Writing by : <a class="span-author" href="author.php?id=<?php echo $post->getIdUser()?>"> <?php echo $post->getPseudo(); ?></a></p>
            <p><?php echo $post->getDate() ?></p>
-           <p><?php echo $post->getContent() ?></p> 
+           <p><?php echo $post->getContent() ?></p>
         </div>
 </section>
 
 <section class="container section comment">
+<form action="single.php" class="form_comments">
+                <p>Ajouter un commentaire</p>
+                <textarea name="comm" id="comm" cols="60" rows="3" class="text-area"></textarea>
+                <button type="submit" class="btn-comm">Envoyer</button>
+        </form> 
+        <hr>
 <p>Commentaires <br>
 <?php foreach($comment as $comm) { ?>  
         <div class="comments">

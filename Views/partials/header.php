@@ -21,14 +21,60 @@ require_once './Models/managers/UserManager.php';
 </head>
 <body>
 
-    <header>    
+    <header>
+        <div class="entete-container">
+            <div class="hamburger-menu">
 
-        <h1>La Toile <img class="logo" src="./Content/logo.png" alt="logo"></h1>
+                <input id="menu__toggle" type="checkbox" />
+                <label class="menu__btn" for="menu__toggle">
+                <span></span>
+                </label>
+
+                <ul class="menu__box">
+                <?php if(empty($_SESSION['user'])) { ?>
+                    <li><a class="item" href="login.php">
+                    <i class="fa-solid fa-right-to-bracket"></i>Se Connecter</a></li>
+                    <li><a class="item" href="signup.php">
+                    <i class="fa-solid fa-user-pen"></i>S'inscrire</a></li>
+                    <li><a class="item" href="#">
+                        <i id="contact_icon"class="fa-solid fa-envelope"></i>Contact</a></li>
+                    <?php } ?>
+                    <?php if(isset($_SESSION['user'])) {
+                        $id = $_SESSION['user']['role'];
+                        if ($id == 1){ ?>
+                            <li><a class="item" href="deletePost.php">  
+                            <i class="fa-regular fa-trash-can"></i></i>Supprimer un Post</a></li>
+                        <?php } } ?>
+
+                    <?php if(isset($_SESSION['user'])) {
+                        $id = $_SESSION['user']['role'];
+                        if ($id == 1 || $id == 2){
+                        ?>
+                    <li><a class="item" href="addPost.php">  
+                    <i class="fa-solid fa-file-pen"></i></i>Ajouter un Post</a></li>
+                    <li><a class="item" href="updatePost.php">  
+                    <i class="fa-solid fa-pen-to-square"></i></i>Modifier un Post</a></li>
+                    <?php } } ?>
+                    <?php if(isset($_SESSION['user'])) {
+                        $id = $_SESSION['user']['role'];
+                        if ($id == 3){ ?>
+                        <li><a class="item" href="#">
+                        <i id="contact_icon"class="fa-solid fa-envelope"></i>Contact</a></li>
+                        <?php } }?>
+                        <?php if(isset($_SESSION['user'])) { ?>
+                        <li><a class="item" href="logout.php">
+                        <i class="fa-solid fa-house-circle-xmark"></i>Se déconnecter</a></li>
+                        <?php } ?>
+                </ul>
+    </div>
+        <div class="banniere-header">
+            <h1>La Toile <img class="logo" src="./Content/logo.png" alt="logo"></h1>
             
             <h2>Le blog pour les développeurs créatifs</h2>
 
             <div class="container_image_banniere">
             <img class="image_banniere" src="./Content/portrait_fond_blog.png" alt="portrait">
+            </div>
         </div>
 
         <div class="modal-container" id="modal-container">
@@ -41,52 +87,17 @@ require_once './Models/managers/UserManager.php';
 
                 <div class="border-bottom"></div>
 
-
+                <nav>
+            <ul>
+                 <li><a href="index.php">Accueil</a></li>
+                    <?php foreach($categories as $category){ ?>
+                <li><a class="tab" href="category.php?id=<?php echo $category->getIdCategory() ?>"><?php echo $category->getCategoryName() ?></a></li>
+                    <?php } ?>
+                
+            </ul>
+        </nav>
         
-                <div class="hamburger-menu">
 
-<input id="menu__toggle" type="checkbox" />
-<label class="menu__btn" for="menu__toggle">
-  <span></span>
-</label>
-
-<ul class="menu__box">
-<?php if(empty($_SESSION['user'])) { ?>
-    <li><a class="item" href="login.php">
-    <i class="fa-solid fa-right-to-bracket"></i>Se Connecter</a></li>
-    <li><a class="item" href="signup.php">
-    <i class="fa-solid fa-user-pen"></i>S'inscrire</a></li>
-    <li><a class="item" href="#">
-        <i id="contact_icon"class="fa-solid fa-envelope"></i>Contact</a></li>
-    <?php } ?>
-    <?php if(isset($_SESSION['user'])) {
-         $id = $_SESSION['user']['role'];
-         if ($id == 1){ ?>
-            <li><a class="item" href="deletePost.php">  
-            <i class="fa-regular fa-trash-can"></i></i>Supprimer un Post</a></li>
-          <?php } } ?>
-
-    <?php if(isset($_SESSION['user'])) {
-         $id = $_SESSION['user']['role'];
-         if ($id == 1 || $id == 2){
-           ?>
-    <li><a class="item" href="addPost.php">  
-    <i class="fa-solid fa-file-pen"></i></i>Ajouter un Post</a></li>
-    <li><a class="item" href="updatePost.php">  
-    <i class="fa-solid fa-pen-to-square"></i></i>Modifier un Post</a></li>
-    <?php } } ?>
-    <?php if(isset($_SESSION['user'])) {
-         $id = $_SESSION['user']['role'];
-         if ($id == 3){ ?>
-         <li><a class="item" href="#">
-        <i id="contact_icon"class="fa-solid fa-envelope"></i>Contact</a></li>
-        <?php } }?>
-        <?php if(isset($_SESSION['user'])) { ?>
-        <li><a class="item" href="logout.php">
-        <i class="fa-solid fa-house-circle-xmark"></i>Se déconnecter</a></li>
-        <?php } ?>
-</ul>
-</div>
 
         <div class="login">
             
@@ -108,15 +119,10 @@ require_once './Models/managers/UserManager.php';
            <?php }
             ?>
         </div>
-        <nav>
-            <ul>
-                 <li><a href="index.php">Accueil</a></li>
-                    <?php foreach($categories as $category){ ?>
-                <li><a class="tab" href="category.php?id=<?php echo $category->getIdCategory() ?>"><?php echo $category->getCategoryName() ?></a></li>
-                    <?php } ?>
-                
-            </ul>
-        </nav>
+
+
+        </div>   
+
     </header>
 
     

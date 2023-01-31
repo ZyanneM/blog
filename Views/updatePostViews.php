@@ -1,42 +1,39 @@
 <?php
-
+require_once './Models/DBConnect.php';
 require_once 'partials/header.php';
 ?>
-<div class="formulaire">
-    <h1 class="page-title">Ajouter un Article</h1>
-        <form action="update.php" method="POST" enctype="multipart/form-data" class="form_container-addPost">
+    <div class="form_container">
+        <form action="updatePost.php" method="POST">
                 <div class=>
-                    <label for="InputTitle" class="form-label">Titre de l'article</label><br>
-                    <input type="text" class="form-control" id="InputTitle" name="title">
+                    <label for="InputTitle" class="form-label">Titre de l'article</label>
+                    <input type="text" class="form-control" id="InputTitle" name="title" value="<?php echo $post->getTitle() ?>">
                 </div>
                 <div class=>
-                    <label for="InputContent" class="form-label">Contenu de l'article 📒</label><br>
-                    <textarea class="textarea" id="InputContent" name="content" cols="70" wrap="hard" rows="5"></textarea>
+                    <label for="InputContent" class="form-label">Contenu de l'article</label>
+                    <input type="text" class="form-control" id="InputContent" name="content" value="<?php echo $post->getContent() ?>">
                 </div>
-                <fieldset>
-                        <legend>Choisissez une catégorie :</legend>
                 <?php foreach($categories as $category){ ?>
-                        <div>
-                            <!-- //comment avoir une valeur unique pour chaque catégorie -->
-                            <input class="input-category" type="checkbox" value="<?php echo $category->getIdCategory() ?>" id="category.<?php echo $category->getCategoryName() ?>" name="categories[]">
-                            <!-- name="categories[]" on met les crochets pour que php comprenne que c'est un tableau et pouvoir réutiliser ce tableau pour associer l'id des categories à un post voir PostManager -->
-                            <label for="category.<?php echo $category->getCategoryName() ?>">
-                                <?php echo $category->getCategoryName() ?>
-                            </label>
-                        </div>
-                <?php } ?>
-                </fieldset>
-                <div class="form-control-file">
-                    <button for="InputPicture" class="btn-form-addPicture">🖼️ Ajouter une Image</button>
-                    <input type="file" class="" id="picture" name="picture">
+        <div class="form-check">
+            <?php if(in_array($category->getIdCategory(), $post_categories)) { ?>
+                <input checked class="form-check-input" type="checkbox" value="<?php echo $category->getIdCategory() ?>" name="categories[]" id="<?php echo $category->getCategoryName() ?>">
+                <label class="form-check-label" for="<?php echo $category->getCategoryName() ?>">
+                    <?php echo $category->getCategoryName(); ?>
+                </label>
+            <?php } else { ?>
+                <input class="form-check-input" type="checkbox" value="<?php echo $category->getIdCategory() ?>" name="categories[]" id="<?php echo $category->getCategoryName() ?>">
+                <label class="form-check-label" for="<?php echo $category->getCategoryName() ?>">
+                    <?php echo $category->getCategoryName(); ?>
+                </label>
+            <?php } ?>
+        </div>
+        <?php } ?>
+                <div class=>
+                    <label for="InputPicture" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="picture" name="picture">
                 </div>
-                
-
-                <button type="submit" class="btn-form-addPost">Ajouter cet article</button>
+                <button type="submit">Modifier cet article</button>
         </form>
-</div>
-
-
+    </div>
 <?php
  require_once 'partials/footer.php';
 

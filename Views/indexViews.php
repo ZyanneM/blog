@@ -3,7 +3,11 @@
  require_once 'partials/header.php';
 ?>
 
+<h1 class="home-title"> Bienvenue sur le blog !</h1>
+
 <div class="section_card_container">
+
+
 
 <?php foreach($posts as $post) { ?>
     <div class="gradient_box">
